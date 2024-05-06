@@ -5,9 +5,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EastIcon from "@mui/icons-material/East";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { Avatar, Button, Popover, Tooltip, Typography } from "@mui/material";
+import AvatarPopover from "./basicPopover";
 import BasicMenu from "./basicMenu";
 import { Container } from "../Common";
+import { bookTypes } from "./data";
+import { screenWidth } from "../../hooks/function";
 import {
   AccountWrapper,
   ActionsWrapper,
@@ -16,6 +20,8 @@ import {
   CatalogWrapper,
   HeaderBg,
   HeaderWrapper,
+  LogoText,
+  LogoWrapper,
   Navbar,
   NavbarCatalog,
   NavbarLink,
@@ -24,11 +30,7 @@ import {
   SearchWrapper,
   UserName,
 } from "./style";
-import { bookTypes } from "./data";
-import { Logo } from "../../assets/icons";
 import { colors } from "../../utils/variables";
-import AvatarPopover from "./basicPopover";
-import { screenWidth } from "../../hooks/function";
 
 export function Header() {
   const [inputValue, setInputValue] = useState("");
@@ -76,7 +78,17 @@ export function Header() {
       <Container>
         <HeaderWrapper>
           <Link to="/">
-            <Logo />
+            <LogoWrapper>
+              <AutoStoriesIcon
+                sx={{
+                  fontSize: 38,
+                  "@media (max-width: 750px)": {
+                    fontSize: 25,
+                  },
+                }}
+              />
+              <LogoText>Bookstore</LogoText>
+            </LogoWrapper>
           </Link>
 
           <Navbar>
@@ -136,7 +148,17 @@ export function Header() {
           <SearchWrapper>
             <SearchBtn>
               <Link to={`/books/${inputValue}`}>
-                <SearchIcon sx={{ color: "white" }} fontSize="small" />
+                <SearchIcon
+                  sx={{
+                    color: "white",
+                    fontSize: 22,
+
+                    "@media (max-width: 750px)": {
+                      fontSize: 16,
+                    },
+                  }}
+                  fontSize="small"
+                />
               </Link>
             </SearchBtn>
             <SearchInp

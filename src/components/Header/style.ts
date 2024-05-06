@@ -85,10 +85,14 @@ const CatalogTitle = styled.p`
 const SearchInp = styled.input`
   background-color: ${colors.greenLayer};
   color: ${colors.darkGreen};
-  ${styles.fourteenFont}
-  ${adaptiveValue("padding-block", 10, 5)};
-  ${adaptiveValue("padding-inline-start", 35, 16)};
-  ${adaptiveValue("padding-inline-end", 10, 5)};
+  ${adaptiveValue("font-size", 14, 10)};
+  ${adaptiveValue("padding-block", 10, 8)};
+  ${adaptiveValue("padding-inline-start", 35, 20)};
+  ${adaptiveValue("padding-inline-end", 10, 0)};
+  ${adaptiveValue("max-width", 215, 70)};
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  width: 100%;
   border-radius: 20px;
   border: none;
 
@@ -103,10 +107,10 @@ const SearchWrapper = styled.form`
 
 const SearchBtn = styled.button`
   ${styles.center}
-  ${adaptiveValue("width", 40, 25)};
-  ${adaptiveValue("height", 40, 25)};
+  ${adaptiveValue("width", 40, 28)};
+  ${adaptiveValue("height", 40, 28)};
   position: absolute;
-  ${adaptiveValue("top", -3, 0)};
+  ${adaptiveValue("top", -3, -1)};
   left: -10px;
   cursor: pointer;
   border-radius: 50%;
@@ -133,12 +137,30 @@ const UserName = styled.p`
 
 const ActionsWrapper = styled.div`
   ${styles.alignCenter}
-  ${adaptiveValue("gap", 20, 10)};
+  ${adaptiveValue("gap", 20, 0)};
+`;
+
+const LogoWrapper = styled.div`
+  color: ${colors.white};
+  ${styles.center};
+  ${adaptiveValue("gap", 12, 6)};
+`;
+
+const LogoText = styled.p`
+  ${adaptiveValue("font-size", 18, 12)};
+  font-weight: 600;
+  color: ${colors.white};
+  
+  @media (max-width: 750px) {
+    font-weight: 500;
+  },
 `;
 
 export {
   HeaderBg,
   HeaderWrapper,
+  LogoWrapper,
+  LogoText,
   Navbar,
   NavbarLink,
   NavbarCatalog,
