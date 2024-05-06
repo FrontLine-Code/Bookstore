@@ -1,5 +1,9 @@
+import { Header } from "../../components/Header/Header";
+
 export function Books() {
-    return (
-        <div>Books</div>
-    )
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
