@@ -7,23 +7,23 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { Avatar, Button, Popover, Tooltip, Typography } from "@mui/material";
-import AvatarPopover from "./basicPopover";
-import BasicMenu from "./basicMenu";
+import AvatarPopover from "./account";
+import BasicMenu from "./burgerMenu";
 import { Container } from "../Common";
 import { bookTypes } from "./data";
 import { screenWidth } from "../../hooks/function";
 import {
   AccountWrapper,
   ActionsWrapper,
-  CatalogTitle,
-  CatalogType,
-  CatalogWrapper,
+  CategoryTitle,
+  CategoryLink,
+  CategoryWrapper,
   HeaderBg,
   HeaderWrapper,
   LogoText,
   LogoWrapper,
   Navbar,
-  NavbarCatalog,
+  NavbarCategory,
   NavbarLink,
   SearchBtn,
   SearchInp,
@@ -100,14 +100,14 @@ export function Header() {
               <NavbarLink {...navbarLinks.books} />
             </Link>
 
-            <NavbarCatalog
+            <NavbarCategory
               onMouseEnter={handleClick}
               aria-describedby={id}
               style={{
                 border: `2px solid ${open ? colors.white : colors.green}`,
               }}
             >
-              Catalog
+              Category
               <ExpandMoreIcon
                 style={{
                   transform: `rotateZ(${open ? 180 : 0}deg)`,
@@ -115,7 +115,7 @@ export function Header() {
                 }}
                 fontSize="small"
               />
-            </NavbarCatalog>
+            </NavbarCategory>
 
             <Popover
               id={id}
@@ -128,19 +128,19 @@ export function Header() {
               }}
             >
               <Typography sx={{ p: 2 }}>
-                <CatalogTitle>Types of books</CatalogTitle>
-                <CatalogWrapper>
+                <CategoryTitle>Types of books</CategoryTitle>
+                <CategoryWrapper>
                   {bookTypes.map((data) => {
                     return (
                       <Link to={`/books/${data.type}`} key={data.id}>
-                        <CatalogType>
+                        <CategoryLink>
                           {data.type}
                           <EastIcon fontSize="small" />
-                        </CatalogType>
+                        </CategoryLink>
                       </Link>
                     );
                   })}
-                </CatalogWrapper>
+                </CategoryWrapper>
               </Typography>
             </Popover>
           </Navbar>

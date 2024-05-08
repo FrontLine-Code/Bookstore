@@ -36,7 +36,7 @@ const NavbarLink = styled.button<{ $active: boolean }>`
   }
 `;
 
-const NavbarCatalog = styled.button`
+const NavbarCategory = styled.button`
   border: 2px solid ${colors.green};
   color: ${colors.white};
   ${styles.alignCenter}
@@ -50,21 +50,21 @@ const NavbarCatalog = styled.button`
   border-radius: 10px;
 `;
 
-const CatalogWrapper = styled.div`
+const CategoryWrapper = styled.div`
   ${styles.justBetween}
-  ${adaptiveValue("row-gap", 15, 7)};
+  row-gap: 15px;
   flex-wrap: wrap;
   max-width: 315px;
   width: 100%;
 `;
 
-const CatalogType = styled.button`
+const CategoryLink = styled.button`
   ${styles.alignBetween}
   background-color: ${colors.sky};
   color: ${colors.darkGreen};
   border: 2px solid ${colors.sky};
   ${adaptiveValue("padding", 15, 7)};
-  ${adaptiveValue("width", 150, 75)};
+  ${adaptiveValue("width", 150, 130)};
   border-radius: 10px;
   cursor: pointer;
   text-transform: capitalize;
@@ -75,10 +75,10 @@ const CatalogType = styled.button`
   }
 `;
 
-const CatalogTitle = styled.p`
+const CategoryTitle = styled.p`
   color: ${colors.gray};
-  ${adaptiveValue("font-size", 20, 12)};
-  ${adaptiveValue("margin-bottom", 15, 7)};
+  ${adaptiveValue("font-size", 20, 16)};
+  margin-bottom: 15px;
   font-weight: 500;
 `;
 
@@ -163,13 +163,13 @@ export {
   LogoText,
   Navbar,
   NavbarLink,
-  NavbarCatalog,
+  NavbarCategory,
   SearchInp,
   SearchWrapper,
   SearchBtn,
-  CatalogTitle,
-  CatalogType,
-  CatalogWrapper,
+  CategoryTitle,
+  CategoryLink,
+  CategoryWrapper,
   AccountWrapper,
   UserName,
   ActionsWrapper,

@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
-import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import { modalMenus } from "./data";
+import CategoryModal from "./categoryModal";
+import { modalMenus, modalMenusSM } from "./data";
 import { screenWidth } from "../../hooks/function";
 import { colors } from "../../utils/variables";
 
@@ -45,45 +44,32 @@ export default function BasicMenu() {
           ""
         ) : (
           <div>
+            {modalMenusSM.map((data) => {
+              return (
+                <MenuItem key={data.id}>
+                  <Link to={`/${data.text == "home" ? "" : data.text}`}>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: `${data.color}`,
+                        width: "9rem",
+                        justifyContent: "space-between",
+                        "&:hover": {
+                          backgroundColor: `${colors.white}`,
+                          color: `${data.color}`,
+                        },
+                      }}
+                      onClick={handleClose}
+                    >
+                      {data.icon}
+                      {data.text}
+                    </Button>
+                  </Link>
+                </MenuItem>
+              );
+            })}
             <MenuItem>
-              <Link to="/">
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: `${colors.green}`,
-                    width: "9rem",
-                    justifyContent: "space-between",
-                    "&:hover": {
-                      backgroundColor: `${colors.white}`,
-                      color: `${colors.green}`,
-                    },
-                  }}
-                  onClick={handleClose}
-                >
-                  <HomeIcon />
-                  Home
-                </Button>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/books">
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: `${colors.green}`,
-                    width: "9rem",
-                    justifyContent: "space-between",
-                    "&:hover": {
-                      backgroundColor: `${colors.white}`,
-                      color: `${colors.green}`,
-                    },
-                  }}
-                  onClick={handleClose}
-                >
-                  <LibraryBooksIcon />
-                  Books
-                </Button>
-              </Link>
+              <CategoryModal />
             </MenuItem>
           </div>
         )}
