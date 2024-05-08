@@ -8,7 +8,7 @@ const HeaderBg = styled.div`
 
 const HeaderWrapper = styled.div`
   ${styles.alignBetween}
-  ${adaptiveValue("padding-block", 10, 5)};
+  padding-block: 10px;
   width: 100%;
 `;
 
@@ -83,15 +83,14 @@ const CategoryTitle = styled.p`
 `;
 
 const SearchInp = styled.input`
+  ${adaptiveValue("padding-block", 10, 8)};
+  ${adaptiveValue("padding-inline-start", 35, 25)};
+  ${adaptiveValue("padding-inline-end", 10, 0)};
+  ${adaptiveValue("max-width", 215, 95)};
   background-color: ${colors.greenLayer};
   color: ${colors.darkGreen};
-  ${adaptiveValue("font-size", 14, 10)};
-  ${adaptiveValue("padding-block", 10, 8)};
-  ${adaptiveValue("padding-inline-start", 35, 20)};
-  ${adaptiveValue("padding-inline-end", 10, 0)};
-  ${adaptiveValue("max-width", 215, 70)};
+  ${styles.fourteenFont}
   letter-spacing: 0.5px;
-  font-weight: 500;
   width: 100%;
   border-radius: 20px;
   border: none;
@@ -107,8 +106,8 @@ const SearchWrapper = styled.form`
 
 const SearchBtn = styled.button`
   ${styles.center}
-  ${adaptiveValue("width", 40, 28)};
-  ${adaptiveValue("height", 40, 28)};
+  ${adaptiveValue("width", 40, 34)};
+  ${adaptiveValue("height", 40, 34)};
   position: absolute;
   ${adaptiveValue("top", -3, -1)};
   left: -10px;
@@ -137,7 +136,7 @@ const UserName = styled.p`
 
 const ActionsWrapper = styled.div`
   ${styles.alignCenter}
-  ${adaptiveValue("gap", 20, 0)};
+  ${adaptiveValue("gap", 20, 10)};
 `;
 
 const LogoWrapper = styled.div`
@@ -156,6 +155,18 @@ const LogoText = styled.p`
   },
 `;
 
+const modalStyle = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 330,
+  borderRadius: 8,
+  bgcolor: `${colors.white}`,
+  boxShadow: 24,
+  p: 4,
+};
+
 export {
   HeaderBg,
   HeaderWrapper,
@@ -173,4 +184,5 @@ export {
   AccountWrapper,
   UserName,
   ActionsWrapper,
+  modalStyle
 };

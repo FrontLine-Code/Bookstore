@@ -1,5 +1,4 @@
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import HomeIcon from "@mui/icons-material/Home";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
@@ -49,13 +48,7 @@ const modalMenus: {
     text: "settings",
     icon: <SettingsIcon />,
     color: "#8BC34A",
-  },
-  {
-    id: 2,
-    text: "log out",
-    icon: <LogoutIcon />,
-    color: "#FC6767",
-  },
+  }
 ];
 
 const modalMenusSM: {

@@ -7,21 +7,9 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import CategoryIcon from "@mui/icons-material/Category";
 import EastIcon from "@mui/icons-material/East";
-import { bookTypes } from "./data";
-import { colors } from "../../utils/variables";
-import { CategoryLink, CategoryTitle, CategoryWrapper } from "./style";
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 330,
-  borderRadius: 8,
-  bgcolor: `${colors.white}`,
-  boxShadow: 24,
-  p: 4,
-};
+import { bookTypes } from "../data";
+import { colors } from "../../../utils/variables";
+import { CategoryLink, CategoryTitle, CategoryWrapper, modalStyle } from "../style";
 
 export default function CategoryModal() {
   const [open, setOpen] = React.useState(false);
@@ -60,7 +48,7 @@ export default function CategoryModal() {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box sx={modalStyle}>
             <CategoryTitle>Types of books</CategoryTitle>
             <CategoryWrapper>
               {bookTypes.map((data) => {
