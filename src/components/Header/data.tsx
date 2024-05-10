@@ -1,8 +1,13 @@
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import SettingsIcon from "@mui/icons-material/Settings";
 import HomeIcon from "@mui/icons-material/Home";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import Favorite from "@mui/icons-material/Favorite";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import SettingsIcon from "@mui/icons-material/Settings";
+import LogoutIcon from "@mui/icons-material/Logout";
+import GlobalModal from "../Modal/Modal";
+import { greenBtnStyle, redBtnStyle } from "../../utils/globalStyles";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const bookTypes: { id: number; type: string }[] = [
   {
@@ -33,22 +38,51 @@ const bookTypes: { id: number; type: string }[] = [
 
 const modalMenus: {
   id: number;
-  text: string;
-  icon: JSX.Element;
-  color: string;
+  component: JSX.Element;
 }[] = [
   {
     id: 0,
-    text: "add book",
-    icon: <AddCircleIcon />,
-    color: "#8BC34A",
+    component: (
+      <GlobalModal
+        buttonEl={
+          <>
+            <AddCircleIcon />
+            ADD BOOK
+          </>
+        }
+        btnStyle={greenBtnStyle}
+      >
+        Edit book
+      </GlobalModal>
+    ),
+  },
+  {
+    id: 0,
+    component: (
+      <Link to="/settings">
+        <Button variant="contained" sx={greenBtnStyle}>
+          <SettingsIcon />
+          Settings
+        </Button>
+      </Link>
+    ),
   },
   {
     id: 1,
-    text: "settings",
-    icon: <SettingsIcon />,
-    color: "#8BC34A",
-  }
+    component: (
+      <GlobalModal
+        buttonEl={
+          <>
+            <LogoutIcon />
+            Log Out
+          </>
+        }
+        btnStyle={redBtnStyle}
+      >
+        Log out
+      </GlobalModal>
+    ),
+  },
 ];
 
 const modalMenusSM: {
@@ -74,7 +108,7 @@ const modalMenusSM: {
     text: "like",
     icon: <Favorite />,
     color: "#8BC34A",
-  }
+  },
 ];
 
-export { bookTypes, modalMenus, modalMenusSM};
+export { bookTypes, modalMenus, modalMenusSM };

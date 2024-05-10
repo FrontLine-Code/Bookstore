@@ -6,6 +6,7 @@ import { BookDetail } from "./pages/BookDetail/BookDetail";
 import { Error } from "./pages/404/Error";
 import { LogIn } from "./pages/LogIn/LogIn";
 import { Registration } from "./pages/Registration/Registration";
+import { Settings } from "./pages/Settings/Settings";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/books" element={<Books />} />
         <Route path="/like" element={<Like />} />
         <Route path="/book-detail" element={<BookDetail />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/sigin" element={<Registration />} />
         <Route path="*" element={<Error />} />

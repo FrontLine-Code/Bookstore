@@ -7,11 +7,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { Avatar, Button, Popover, Tooltip, Typography } from "@mui/material";
-import AvatarPopover from "./elements/account";
 import BasicMenu from "./elements/burgerMenu";
-import { Container } from "../Common";
 import { bookTypes } from "./data";
 import { screenWidth } from "../../hooks/function";
+import { Container } from "../../utils/globalStyles";
 import {
   AccountWrapper,
   ActionsWrapper,
@@ -168,7 +167,6 @@ export function Header() {
               onChange={handleChange}
             />
           </SearchWrapper>
-
           <ActionsWrapper>
             <Link to="/like">
               <Button
@@ -190,9 +188,9 @@ export function Header() {
             </Link>
 
             {screenWidth <= 650 ? (
-              <AvatarPopover />
+              ""
             ) : (
-              <AccountWrapper>
+              <AccountWrapper to="/settings">
                 <UserName>A.Alisher</UserName>
                 <Avatar
                   sx={{

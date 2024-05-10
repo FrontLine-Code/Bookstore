@@ -8,8 +8,8 @@ import Button from "@mui/material/Button";
 import CategoryIcon from "@mui/icons-material/Category";
 import EastIcon from "@mui/icons-material/East";
 import { bookTypes } from "../data";
-import { colors } from "../../../utils/variables";
 import { CategoryLink, CategoryTitle, CategoryWrapper, modalStyle } from "../style";
+import { greenBtnStyle } from "../../../utils/globalStyles";
 
 export default function CategoryModal() {
   const [open, setOpen] = React.useState(false);
@@ -21,15 +21,7 @@ export default function CategoryModal() {
       <Button
         onClick={handleOpen}
         variant="contained"
-        sx={{
-          backgroundColor: `${colors.green}`,
-          width: "9rem",
-          justifyContent: "space-between",
-          "&:hover": {
-            backgroundColor: `${colors.white}`,
-            color: `${colors.green}`,
-          },
-        }}
+        sx={greenBtnStyle}
       >
         <CategoryIcon />
         Category

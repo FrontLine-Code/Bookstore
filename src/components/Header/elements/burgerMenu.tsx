@@ -6,8 +6,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CategoryModal from "./categoryModal";
 import { modalMenus, modalMenusSM } from "../data";
 import { screenWidth } from "../../../hooks/function";
-import { colors } from "../../../utils/variables";
-import LogoutModal from "./logoutModal";
+import { greenBtnStyle } from "../../../utils/globalStyles";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -52,15 +51,7 @@ export default function BasicMenu() {
                   <Link to={`/${data.text == "home" ? "" : data.text}`}>
                     <Button
                       variant="contained"
-                      sx={{
-                        backgroundColor: `${data.color}`,
-                        width: "9rem",
-                        justifyContent: "space-between",
-                        "&:hover": {
-                          backgroundColor: `${colors.white}`,
-                          color: `${data.color}`,
-                        },
-                      }}
+                      sx={greenBtnStyle}
                       onClick={handleClose}
                     >
                       {data.icon}
@@ -75,31 +66,10 @@ export default function BasicMenu() {
             </MenuItem>
           </div>
         )}
+
         {modalMenus.map((data) => {
-          return (
-            <MenuItem key={data.id}>
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: `${data.color}`,
-                  width: "9rem",
-                  justifyContent: "space-between",
-                  "&:hover": {
-                    backgroundColor: `${colors.white}`,
-                    color: `${data.color}`,
-                  },
-                }}
-                onClick={handleClose}
-              >
-                {data.icon}
-                {data.text}
-              </Button>
-            </MenuItem>
-          );
+          return <MenuItem key={data.id}>{data.component}</MenuItem>;
         })}
-        <MenuItem>
-          <LogoutModal />
-        </MenuItem>
       </Menu>
     </div>
   );

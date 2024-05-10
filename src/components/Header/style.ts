@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { adaptiveValue, colors } from "../../utils/variables";
 import { styles } from "../../utils/commonStyles";
+import { Link } from "react-router-dom";
 
 const HeaderBg = styled.div`
   background-color: ${colors.green};
@@ -80,6 +81,7 @@ const CategoryTitle = styled.p`
   ${adaptiveValue("font-size", 20, 16)};
   margin-bottom: 15px;
   font-weight: 500;
+  text-align: center;
 `;
 
 const SearchInp = styled.input`
@@ -123,9 +125,13 @@ const SearchBtn = styled.button`
   box-shadow: 0px 2px 25px -6px rgba(36, 36, 36, 1);
 `;
 
-const AccountWrapper = styled.div`
+const AccountWrapper = styled(Link)`
   ${styles.alignCenter}
   ${adaptiveValue("gap", 10, 5)};
+
+  &:hover{
+    background-color: ${colors.white};
+  }
 `;
 
 const UserName = styled.p`
@@ -156,7 +162,7 @@ const LogoText = styled.p`
 `;
 
 const modalStyle = {
-  position: "absolute" as "absolute",
+  position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
@@ -184,5 +190,5 @@ export {
   AccountWrapper,
   UserName,
   ActionsWrapper,
-  modalStyle
+  modalStyle,
 };
