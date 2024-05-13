@@ -5,8 +5,8 @@ import { Like } from "./pages/Like/Like";
 import { BookDetail } from "./pages/BookDetail/BookDetail";
 import { Error } from "./pages/404/Error";
 import { LogIn } from "./pages/LogIn/LogIn";
-import { Registration } from "./pages/Registration/Registration";
 import { Settings } from "./pages/Settings/Settings";
+import Registration from "./pages/Registration/Registration";
 
 function App() {
   return (
