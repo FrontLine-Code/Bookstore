@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import CategoryModal from "./categoryModal";
-import { modalMenus, modalMenusSM } from "../data";
+import CategoryIcon from "@mui/icons-material/Category";
+import EastIcon from "@mui/icons-material/East";
+import { bookTypes, modalMenus, modalMenusSM } from "../data";
+import GlobalModal from "../../Modal/Modal";
 import { screenWidth } from "../../../hooks/function";
 import { greenBtnStyle } from "../../../utils/globalStyles";
+import * as Style from "../style";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -62,7 +65,29 @@ export default function BasicMenu() {
               );
             })}
             <MenuItem>
-              <CategoryModal />
+              <GlobalModal
+                buttonEl={
+                  <>
+                    <CategoryIcon />
+                    Category
+                  </>
+                }
+                btnStyle={greenBtnStyle}
+              >
+                <Style.CategoryTitle>Types of books</Style.CategoryTitle>
+                <Style.CategoryWrapper>
+                  {bookTypes.map((data) => {
+                    return (
+                      <Link to={`/books/${data.type}`} key={data.id}>
+                        <Style.CategoryLink>
+                          {data.type}
+                          <EastIcon fontSize="small" />
+                        </Style.CategoryLink>
+                      </Link>
+                    );
+                  })}
+                </Style.CategoryWrapper>
+              </GlobalModal>
             </MenuItem>
           </div>
         )}

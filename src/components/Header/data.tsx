@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import Favorite from "@mui/icons-material/Favorite";
 import HomeIcon from "@mui/icons-material/Home";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import Favorite from "@mui/icons-material/Favorite";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import GlobalModal from "../Modal/Modal";
 import { greenBtnStyle, redBtnStyle } from "../../utils/globalStyles";
-import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
 
 const bookTypes: { id: number; type: string }[] = [
   {
@@ -52,7 +52,7 @@ const modalMenus: {
         }
         btnStyle={greenBtnStyle}
       >
-        Edit book
+        Add book
       </GlobalModal>
     ),
   },

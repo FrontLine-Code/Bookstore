@@ -8,27 +8,10 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { Avatar, Button, Popover, Tooltip, Typography } from "@mui/material";
 import BasicMenu from "./elements/burgerMenu";
+import { Container } from "../../utils/globalStyles";
 import { bookTypes } from "./data";
 import { screenWidth } from "../../hooks/function";
-import { Container } from "../../utils/globalStyles";
-import {
-  AccountWrapper,
-  ActionsWrapper,
-  CategoryTitle,
-  CategoryLink,
-  CategoryWrapper,
-  HeaderBg,
-  HeaderWrapper,
-  LogoText,
-  LogoWrapper,
-  Navbar,
-  NavbarCategory,
-  NavbarLink,
-  SearchBtn,
-  SearchInp,
-  SearchWrapper,
-  UserName,
-} from "./style";
+import * as Style from "./style";
 import { colors } from "../../utils/variables";
 
 export function Header() {
@@ -61,6 +44,10 @@ export function Header() {
       $active: boolean;
       children: React.ReactNode;
     };
+    settings: {
+      $active: boolean;
+      children: React.ReactNode;
+    };
   } = {
     home: {
       $active: currentUrl === "/",
@@ -70,14 +57,18 @@ export function Header() {
       $active: currentUrl === "/books",
       children: "Books",
     },
+    settings: {
+      $active: currentUrl === "/settings",
+      children: "Settings",
+    },
   };
 
   return (
-    <HeaderBg>
+    <Style.HeaderBg>
       <Container>
-        <HeaderWrapper>
+        <Style.HeaderWrapper>
           <Link to="/">
-            <LogoWrapper>
+            <Style.LogoWrapper>
               <AutoStoriesIcon
                 sx={{
                   fontSize: 38,
@@ -86,20 +77,20 @@ export function Header() {
                   },
                 }}
               />
-              <LogoText>Bookstore</LogoText>
-            </LogoWrapper>
+              <Style.LogoText>Bookstore</Style.LogoText>
+            </Style.LogoWrapper>
           </Link>
 
-          <Navbar>
+          <Style.Navbar>
             <Link to="/">
-              <NavbarLink {...navbarLinks.home} />
+              <Style.NavbarLink {...navbarLinks.home} />
             </Link>
 
             <Link to="/books">
-              <NavbarLink {...navbarLinks.books} />
+              <Style.NavbarLink {...navbarLinks.books} />
             </Link>
 
-            <NavbarCategory
+            <Style.NavbarCategory
               onMouseEnter={handleClick}
               aria-describedby={id}
               style={{
@@ -114,7 +105,7 @@ export function Header() {
                 }}
                 fontSize="small"
               />
-            </NavbarCategory>
+            </Style.NavbarCategory>
 
             <Popover
               id={id}
@@ -127,25 +118,25 @@ export function Header() {
               }}
             >
               <Typography sx={{ p: 2 }}>
-                <CategoryTitle>Types of books</CategoryTitle>
-                <CategoryWrapper>
+                <Style.CategoryTitle>Types of books</Style.CategoryTitle>
+                <Style.CategoryWrapper>
                   {bookTypes.map((data) => {
                     return (
                       <Link to={`/books/${data.type}`} key={data.id}>
-                        <CategoryLink>
+                        <Style.CategoryLink>
                           {data.type}
                           <EastIcon fontSize="small" />
-                        </CategoryLink>
+                        </Style.CategoryLink>
                       </Link>
                     );
                   })}
-                </CategoryWrapper>
+                </Style.CategoryWrapper>
               </Typography>
             </Popover>
-          </Navbar>
+          </Style.Navbar>
 
-          <SearchWrapper>
-            <SearchBtn>
+          <Style.SearchWrapper>
+            <Style.SearchBtn>
               <Link to={`/books/${inputValue}`}>
                 <SearchIcon
                   sx={{
@@ -159,15 +150,15 @@ export function Header() {
                   fontSize="small"
                 />
               </Link>
-            </SearchBtn>
-            <SearchInp
+            </Style.SearchBtn>
+            <Style.SearchInp
               placeholder="Search"
               type="search"
               value={inputValue}
               onChange={handleChange}
             />
-          </SearchWrapper>
-          <ActionsWrapper>
+          </Style.SearchWrapper>
+          <Style.ActionsWrapper>
             <Link to="/like">
               <Button
                 sx={{
@@ -190,8 +181,10 @@ export function Header() {
             {screenWidth <= 650 ? (
               ""
             ) : (
-              <AccountWrapper to="/settings">
-                <UserName>A.Alisher</UserName>
+              <Style.AccountWrapper to="/settings" {...navbarLinks.settings}>
+                <Style.UserName {...navbarLinks.settings}>
+                  A.Alisher
+                </Style.UserName>
                 <Avatar
                   sx={{
                     backgroundColor: `${colors.greenLayer}`,
@@ -202,13 +195,13 @@ export function Header() {
                     },
                   }}
                 />
-              </AccountWrapper>
+              </Style.AccountWrapper>
             )}
 
             <BasicMenu />
-          </ActionsWrapper>
-        </HeaderWrapper>
+          </Style.ActionsWrapper>
+        </Style.HeaderWrapper>
       </Container>
-    </HeaderBg>
+    </Style.HeaderBg>
   );
 }

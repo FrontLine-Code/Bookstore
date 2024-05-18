@@ -1,27 +1,16 @@
 import React from "react";
-import { CSSProperties } from 'react';
+import { CSSProperties } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import { SxProps, Theme } from "@mui/material";
+import { modalStyle } from "./style";
 
 interface ModalProps {
   children: React.ReactNode;
   buttonEl: React.ReactNode;
   btnStyle: CSSProperties;
 }
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
 const GlobalModal: React.FC<ModalProps> = ({
   children,
@@ -47,7 +36,7 @@ const GlobalModal: React.FC<ModalProps> = ({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>{children}</Box>
+        <Box sx={modalStyle}>{children}</Box>
       </Modal>
     </Box>
   );

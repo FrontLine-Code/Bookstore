@@ -1,19 +1,19 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { adaptiveValue, colors } from "../../utils/variables";
 import { styles } from "../../utils/commonStyles";
-import { Link } from "react-router-dom";
 
-const HeaderBg = styled.div`
+export const HeaderBg = styled.div`
   background-color: ${colors.green};
 `;
 
-const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
   ${styles.alignBetween}
   padding-block: 10px;
   width: 100%;
 `;
 
-const Navbar = styled.nav`
+export const Navbar = styled.nav`
   display: flex;
   ${adaptiveValue("gap", 22, 10)};
 
@@ -22,7 +22,7 @@ const Navbar = styled.nav`
   }
 `;
 
-const NavbarLink = styled.button<{ $active: boolean }>`
+export const NavbarLink = styled.button<{ $active: boolean }>`
   background-color: ${(props) => (props.$active ? colors.white : colors.green)};
   color: ${(props) => (props.$active ? colors.green : colors.white)};
   border: 2px solid ${colors.green};
@@ -37,7 +37,7 @@ const NavbarLink = styled.button<{ $active: boolean }>`
   }
 `;
 
-const NavbarCategory = styled.button`
+export const NavbarCategory = styled.button`
   border: 2px solid ${colors.green};
   color: ${colors.white};
   ${styles.alignCenter}
@@ -51,7 +51,7 @@ const NavbarCategory = styled.button`
   border-radius: 10px;
 `;
 
-const CategoryWrapper = styled.div`
+export const CategoryWrapper = styled.div`
   ${styles.justBetween}
   row-gap: 15px;
   flex-wrap: wrap;
@@ -59,7 +59,7 @@ const CategoryWrapper = styled.div`
   width: 100%;
 `;
 
-const CategoryLink = styled.button`
+export const CategoryLink = styled.button`
   ${styles.alignBetween}
   background-color: ${colors.sky};
   color: ${colors.darkGreen};
@@ -76,7 +76,7 @@ const CategoryLink = styled.button`
   }
 `;
 
-const CategoryTitle = styled.p`
+export const CategoryTitle = styled.p`
   color: ${colors.gray};
   ${adaptiveValue("font-size", 20, 16)};
   margin-bottom: 15px;
@@ -84,7 +84,7 @@ const CategoryTitle = styled.p`
   text-align: center;
 `;
 
-const SearchInp = styled.input`
+export const SearchInp = styled.input`
   ${adaptiveValue("padding-block", 10, 8)};
   ${adaptiveValue("padding-inline-start", 35, 25)};
   ${adaptiveValue("padding-inline-end", 10, 0)};
@@ -102,11 +102,11 @@ const SearchInp = styled.input`
   }
 `;
 
-const SearchWrapper = styled.form`
+export const SearchWrapper = styled.form`
   position: relative;
 `;
 
-const SearchBtn = styled.button`
+export const SearchBtn = styled.button`
   ${styles.center}
   ${adaptiveValue("width", 40, 34)};
   ${adaptiveValue("height", 40, 34)};
@@ -125,33 +125,38 @@ const SearchBtn = styled.button`
   box-shadow: 0px 2px 25px -6px rgba(36, 36, 36, 1);
 `;
 
-const AccountWrapper = styled(Link)`
+export const AccountWrapper = styled(Link)<{ $active: boolean }>`
+  background-color: ${(props) => (props.$active ? colors.white : colors.green)};
   ${styles.alignCenter}
   ${adaptiveValue("gap", 10, 5)};
+  border: 2px solid ${colors.green};
+  border-radius: 10px;
+  padding: 5px 5px 5px 10px;
+  transition: 0.1s;
 
-  &:hover{
-    background-color: ${colors.white};
+  &:hover {
+    border: 2px solid ${colors.white};
   }
 `;
 
-const UserName = styled.p`
-  color: ${colors.white};
+export const UserName = styled.p<{ $active: boolean }>`
+  color: ${(props) => (props.$active ? colors.green : colors.white)};
   ${styles.fourteenFont}
   letter-spacing: 0.5px;
 `;
 
-const ActionsWrapper = styled.div`
+export const ActionsWrapper = styled.div`
   ${styles.alignCenter}
   ${adaptiveValue("gap", 20, 10)};
 `;
 
-const LogoWrapper = styled.div`
+export const LogoWrapper = styled.div`
   color: ${colors.white};
   ${styles.center};
   ${adaptiveValue("gap", 12, 6)};
 `;
 
-const LogoText = styled.p`
+export const LogoText = styled.p`
   ${adaptiveValue("font-size", 18, 12)};
   font-weight: 600;
   color: ${colors.white};
@@ -160,35 +165,3 @@ const LogoText = styled.p`
     font-weight: 500;
   },
 `;
-
-const modalStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 330,
-  borderRadius: 8,
-  bgcolor: `${colors.white}`,
-  boxShadow: 24,
-  p: 4,
-};
-
-export {
-  HeaderBg,
-  HeaderWrapper,
-  LogoWrapper,
-  LogoText,
-  Navbar,
-  NavbarLink,
-  NavbarCategory,
-  SearchInp,
-  SearchWrapper,
-  SearchBtn,
-  CategoryTitle,
-  CategoryLink,
-  CategoryWrapper,
-  AccountWrapper,
-  UserName,
-  ActionsWrapper,
-  modalStyle,
-};

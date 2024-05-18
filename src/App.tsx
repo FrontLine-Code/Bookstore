@@ -4,9 +4,9 @@ import { Books } from "./pages/Books/Books";
 import { Like } from "./pages/Like/Like";
 import { BookDetail } from "./pages/BookDetail/BookDetail";
 import { Error } from "./pages/404/Error";
-import { LogIn } from "./pages/LogIn/LogIn";
-import { Registration } from "./pages/Registration/Registration";
 import { Settings } from "./pages/Settings/Settings";
+import { Login } from "./pages/Authentication/LogIn";
+import Sigin from "./pages/Authentication/Sigin";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
         <Route path="/like" element={<Like />} />
         <Route path="/book-detail" element={<BookDetail />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/sigin" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sigin" element={<Sigin />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

@@ -25,15 +25,18 @@ export const Container = styled.div`
 `;
 
 export const GradientTitle = styled.p`
-  font-size: 40px;
-  font-weight: 600;
+  background-image: -webkit-linear-gradient(80deg, #8bc34a, #388e3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: Epilogue;
-  background: rgb(56, 142, 60);
-  background: linear-gradient(
-    5deg,
-    rgba(56, 142, 60, 1) 0%,
-    rgba(139, 195, 74, 1) 100%
-  );
+  font-size: 35px;
+  font-weight: Bold;
+  font-feature-settings: "kern";
+  overflow-wrap: break-word;
+  text-align: center;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  margin-block: 90px 60px;
 `;
 
 export const redBtnStyle = {
