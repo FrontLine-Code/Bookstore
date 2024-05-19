@@ -1,20 +1,33 @@
 import { Link } from "react-router-dom";
-import { BackBtn, ErrorReminder, ErrorWord, HugeEllipse } from "./style";
+import { Box } from "@mui/material";
 import WestIcon from "@mui/icons-material/West";
+import * as Style from "./style";
+import { HugeEllipse } from "../../utils/globalStyles";
 
 export function Error() {
   return (
     <div>
       <Link to="/">
-        <BackBtn>
+        <Style.BackBtn>
           <WestIcon />
           Home
-        </BackBtn>
+        </Style.BackBtn>
       </Link>
-      <HugeEllipse>
-        <ErrorWord>404</ErrorWord>
-        <ErrorReminder>something went wrong try again</ErrorReminder>
-      </HugeEllipse>
+      <Box
+        sx={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <HugeEllipse>
+          <Style.ErrorWord>404</Style.ErrorWord>
+          <Style.ErrorReminder>
+            something went wrong try again
+          </Style.ErrorReminder>
+        </HugeEllipse>
+      </Box>
     </div>
   );
 }

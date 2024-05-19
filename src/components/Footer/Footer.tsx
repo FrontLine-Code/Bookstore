@@ -17,10 +17,6 @@ export function Footer() {
       $active: boolean;
       children: React.ReactNode;
     };
-    books: {
-      $active: boolean;
-      children: React.ReactNode;
-    };
     settings: {
       $active: boolean;
       children: React.ReactNode;
@@ -33,10 +29,6 @@ export function Footer() {
     home: {
       $active: currentUrl === "/",
       children: "Home",
-    },
-    books: {
-      $active: currentUrl === "/books",
-      children: "Books",
     },
     settings: {
       $active: currentUrl === "/settings",
@@ -70,10 +62,6 @@ export function Footer() {
             <Navbar>
               <Link to="/">
                 <Style.FooterLink {...navbarLinks.home} />
-              </Link>
-
-              <Link to="/books">
-                <Style.FooterLink {...navbarLinks.books} />
               </Link>
 
               <Link to="/settings">

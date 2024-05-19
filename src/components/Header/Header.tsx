@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Avatar, Button, Popover, Tooltip, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EastIcon from "@mui/icons-material/East";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import { Avatar, Button, Popover, Tooltip, Typography } from "@mui/material";
 import BasicMenu from "./elements/burgerMenu";
-import { Container } from "../../utils/globalStyles";
 import { bookTypes } from "./data";
 import { screenWidth } from "../../hooks/function";
-import * as Style from "./style";
+import { Container } from "../../utils/globalStyles";
 import { colors } from "../../utils/variables";
+import * as Style from "./style";
 
 export function Header() {
   const [inputValue, setInputValue] = useState("");
@@ -22,6 +22,7 @@ export function Header() {
   );
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+  const navigate = useNavigate();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -35,12 +36,20 @@ export function Header() {
     setInputValue(event.target.value);
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.keyCode === 13) {
+      handleSearch();
+    }
+  };
+
+  const handleSearch = () => {
+    if (inputValue.trim() !== "") {
+      navigate(`/books/${inputValue}`);
+    }
+  };
+
   const navbarLinks: {
     home: {
-      $active: boolean;
-      children: React.ReactNode;
-    };
-    books: {
       $active: boolean;
       children: React.ReactNode;
     };
@@ -52,10 +61,6 @@ export function Header() {
     home: {
       $active: currentUrl === "/",
       children: "Home",
-    },
-    books: {
-      $active: currentUrl === "/books",
-      children: "Books",
     },
     settings: {
       $active: currentUrl === "/settings",
@@ -84,10 +89,6 @@ export function Header() {
           <Style.Navbar>
             <Link to="/">
               <Style.NavbarLink {...navbarLinks.home} />
-            </Link>
-
-            <Link to="/books">
-              <Style.NavbarLink {...navbarLinks.books} />
             </Link>
 
             <Style.NavbarCategory
@@ -136,26 +137,25 @@ export function Header() {
           </Style.Navbar>
 
           <Style.SearchWrapper>
-            <Style.SearchBtn>
-              <Link to={`/books/${inputValue}`}>
-                <SearchIcon
-                  sx={{
-                    color: "white",
-                    fontSize: 22,
+            <Style.SearchBtn onClick={handleSearch}>
+              <SearchIcon
+                sx={{
+                  color: "white",
+                  fontSize: 22,
 
-                    "@media (max-width: 750px)": {
-                      fontSize: 16,
-                    },
-                  }}
-                  fontSize="small"
-                />
-              </Link>
+                  "@media (max-width: 750px)": {
+                    fontSize: 16,
+                  },
+                }}
+                fontSize="small"
+              />
             </Style.SearchBtn>
             <Style.SearchInp
               placeholder="Search"
               type="search"
               value={inputValue}
               onChange={handleChange}
+              onKeyPress={handleKeyPress}
             />
           </Style.SearchWrapper>
           <Style.ActionsWrapper>

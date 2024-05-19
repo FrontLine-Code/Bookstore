@@ -1,6 +1,7 @@
 import { styled, createGlobalStyle } from "styled-components";
 import { adaptiveValue } from "../utils/variables";
 import { colors } from "./variables";
+import { styles } from "./commonStyles";
 
 export const GlobalStyles = createGlobalStyle`
  *{
@@ -12,7 +13,6 @@ export const GlobalStyles = createGlobalStyle`
  }
 
  body{
-    background-color: ${colors.sky};
     font-family: Epilogue;
  }
 `;
@@ -36,7 +36,21 @@ export const GradientTitle = styled.p`
   text-align: center;
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
-  margin-block: 90px 60px;
+  margin-block: 40px;
+`;
+
+export const HugeEllipse = styled.div`
+  background-color: ${colors.greenLayer};
+  ${styles.center}
+  ${adaptiveValue("width", 415, 295)};
+  ${adaptiveValue("height", 415, 295)};
+  flex-direction: column;
+  border-radius: 50%;
+  margin: auto;
+  color: ${colors.darkGreen};
+  ${adaptiveValue("font-size", 24, 20)};
+  text-align: center;
+  font-weight: 600;
 `;
 
 export const redBtnStyle = {

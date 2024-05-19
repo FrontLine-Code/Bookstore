@@ -135,7 +135,7 @@ export const AccountWrapper = styled(Link)<{ $active: boolean }>`
   transition: 0.1s;
 
   &:hover {
-    background-color: ${colors.white};
+    border: 2px solid ${colors.white};
   }
 `;
 

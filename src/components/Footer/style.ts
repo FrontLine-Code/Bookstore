@@ -6,6 +6,7 @@ export const MainFooterBg = styled.div`
   background-color: ${colors.darkGreen};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  margin-top: 40px;
 `;
 
 export const FooterInnerWrapper = styled.div`

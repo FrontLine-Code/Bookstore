@@ -12,7 +12,7 @@ interface FormState {
   password: string;
 }
 
-const Sigin: React.FC = () => {
+export function Sigin() {
   const classes = Style.useStyles();
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [formState, setFormState] = useState<FormState>({
@@ -52,7 +52,7 @@ const Sigin: React.FC = () => {
 
   return (
     <Style.FormWrapper>
-      <GradientTitle variant="h4">Sig In</GradientTitle>
+      <GradientTitle>Sig In</GradientTitle>
       <Style.FormContent onSubmit={handleSubmit}>
         <Style.InputWrapper>
           <Style.FormInput
@@ -113,6 +113,4 @@ const Sigin: React.FC = () => {
       </Style.FormContent>
     </Style.FormWrapper>
   );
-};
-
-export default Sigin;
+}

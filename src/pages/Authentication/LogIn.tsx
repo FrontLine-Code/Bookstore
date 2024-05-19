@@ -9,7 +9,7 @@ export function Login() {
 
   return (
     <Style.FormWrapper>
-      <GradientTitle variant="h4">Log In</GradientTitle>
+      <GradientTitle>Log In</GradientTitle>
       <Style.FormContent>
         <Style.FormInput
           type="email"
